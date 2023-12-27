@@ -107,7 +107,7 @@ class TypeController extends Controller
             'title' => 'required',
             'image_url' => 'sometimes|mimes:jpg,png,jpeg,gif|max:1024',
             'index' => 'required|numeric',
-            'size' => 'required|numeric',
+            'size' => 'required',
             'building_size' => 'required|numeric',
             'land_size' => 'required',
             'bedroom' => 'required|numeric',
