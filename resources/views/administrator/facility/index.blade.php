@@ -1,5 +1,22 @@
 @include('sweetalert::alert')
 
+<div class="card">
+  <div class="card-body">
+    <form action="{{ URL::to('/admin/company-facility/' . $company->id) }}" method="POST" autocomplete="off">
+        @method('PUT')    
+        @csrf
+        <div class="form-group">
+          <label for="">Judul Facilitas</label>
+          <input type="text" class="form-control" name="facility_title" value="{{ $company->facility_title }}">   
+          <label for="" class="mt-3">Catatan Facilitas</label>      
+          <textarea name="facility_note" class="form-control">{{ $company->facility_note }}</textarea>
+        </div>  
+
+        <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
+  </div>
+</div>
+
 <a href="{{ URL::to('/admin/facility/create') }}" class="btn btn-primary mb-3"><i class="fas fa-plus" aria-hidden="true"></i> Tambah</a>  
 
 
@@ -8,9 +25,8 @@
                     <tr>
                         <th width="5%">No</th>
                         <th width="10%">Judul</th>        
-                        <th width="10%">Urutan</th>    
-                        <th>Note</th>                                                     
-                        <th>Icon</th>                        
+                        <th width="10%">Urutan</th>                              
+                        <th>Gambar</th>                         
                         <th width="20%">Action</th> 
                     </tr>
                   </thead>
@@ -20,8 +36,7 @@
                         <td class="align-middle">{{ $loop->iteration }}</td>
                         <td class="align-middle">{{ $facility->title  }}</td>
                         <td class="align-middle">{{ $facility->index   }}</td>      
-                        <td class="align-middle">{{ $facility->note }}</td>
-                        <td class="align-middle">{{ $facility->icon }}</td>                 
+                        <td class="align-middle"><img src="{{ URL::to('storage/' .$facility->image_url) }}"  width="35%" alt=""></td>                 
                         <td class="align-middle">
                             <div class="d-flex">
                                 <a href="{{ URL::to('/admin/facility/' . $facility->id . "/edit") }}" class="btn btn-success mx-2  btn-sm"> <i class="fas fa-edit"></i> Edit</a>  

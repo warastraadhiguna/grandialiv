@@ -3,8 +3,9 @@
   <main id="main">
 
     @include('main.home.facilities')
+    {{-- @include('main.home.youtube') --}}
     @include('main.home.type')
-
+    @include('main.home.news')
     @include('main.home.advantage')
 
 

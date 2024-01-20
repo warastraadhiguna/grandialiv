@@ -10,9 +10,12 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat";
     color: #555555;
 }
+
+
+/* Montseraat */
 
 h1,
 h2,
@@ -20,11 +23,11 @@ h3,
 h4,
 h5,
 h6 {
-    color: #000000;
+    color: #126966;
 }
 
 a {
-    color: #000000;
+    color: #126966;
     text-decoration: none;
     transition: all 0.5s ease;
 }
@@ -35,27 +38,27 @@ a:hover {
 }
 
 .link-two {
-    color: #000000;
+    color: #126966;
     transition: all 0.5s ease;
 }
 
 .link-two:hover {
     text-decoration: underline;
-    color: #000000;
+    color: #126966;
 }
 
 .link-one {
-    color: #000000;
+    color: #126966;
     transition: all 0.5s ease;
 }
 
 .link-one:hover {
-    color: #000000;
+    color: #126966;
     text-decoration: none;
 }
 
 .link-icon {
-    color: #000000;
+    color: #126966;
     font-weight: 500;
 }
 
@@ -71,6 +74,51 @@ a:hover {
     text-decoration: none;
 }
 
+/*------/ Landing page content angling /------*/
+
+.title-landing-page-content {
+    color: #126966;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title-landing-page-news {
+    color: #ffffff;
+    font-weight: 900;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 70px;
+    margin-left: 50px;
+}
+
+.note-landing-page-content {
+    color: #126966;
+    text-align: center;
+}
+
+hr {
+    border-top: 3px solid #0a4846;
+    margin: 30px auto;
+}
+
+#detail-here {
+    background-color: #126966;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.carousel-item-news {
+    background-image: url("/img/leafes.png");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    /* Sesuaikan dengan tinggi yang diinginkan */
+
+}
+
+/* //////////////////////// */
 @media (min-width: 768px) {
     .link-a {
         font-size: 0.9rem;
@@ -94,6 +142,7 @@ a:hover {
     margin-left: 5px;
 }
 
+
 @media (min-width: 768px) {
     .link-a span {
         font-size: 1.5rem;
@@ -107,7 +156,7 @@ a:hover {
 }
 
 .text-brand {
-    color: #000000;
+    color: #126966;
     font-size: 2rem;
     font-weight: 600;
 }
@@ -120,12 +169,14 @@ a:hover {
 
 .color-a {
     text-decoration: none;
-    color: #000000;
+    color: #126966;
 }
 
 .color-b {
     color: #126966;
 }
+
+
 
 .color-d {
     color: #adadad;
@@ -146,7 +197,7 @@ a:hover {
 }
 
 .nav-pills-a.nav-pills .nav-link {
-    color: #000000;
+    color: #126966;
     position: relative;
     font-weight: 600;
 }
@@ -216,13 +267,13 @@ a:hover {
     margin: 0 0.2rem;
     border-color: transparent;
     padding: 0.5rem 0.8rem;
-    color: #000000;
+    color: black;
 }
 
 .pagination-a .pagination .page-link:hover,
 .pagination-a .pagination .page-link:active,
 .pagination-a .pagination .page-link:focus {
-    background-color: #126966;
+    background-color: #2ECA6A;
 }
 
 .pagination-a .pagination .page-link span {
@@ -249,7 +300,7 @@ a:hover {
 }
 
 .pagination-a .pagination .page-item.active .page-link {
-    background-color: #126966;
+    background-color: #2ECA6A;
 }
 
 .a {
@@ -263,13 +314,18 @@ a:hover {
     display: table-cell;
     vertical-align: top;
     font-size: 36px;
-    color: #000000;
+    color: #126966;
     width: 50px;
     padding-top: 8px;
 }
 
 .icon-box .icon-box-content {
     padding-top: 18px;
+}
+
+.news-section {
+    background-color: #0F525E;
+    /* background-image: linear-gradient(to right, #408996, #0F525E); */
 }
 
 /*------/ Space Padding /------*/
@@ -365,6 +421,9 @@ a:hover {
     bottom: 20px;
     left: 0;
 }
+
+
+
 
 /*------/ Display Table & Table Cell /------*/
 .display-table {
@@ -560,22 +619,22 @@ a:hover {
 
 .btn.btn-a {
     text-decoration: none;
-    background-color: #000000;
+    background-color: #126966;
     color: #ffffff;
 }
 
 .btn.btn-a:hover {
     background-color: #126966;
-    color: #000000;
+    color: #126966;
 }
 
 .btn.btn-b {
     background-color: #126966;
-    color: #000000;
+    color: #126966;
 }
 
 .btn.btn-b:hover {
-    background-color: #000000;
+    background-color: #126966;
     color: #ffffff;
 }
 
@@ -616,7 +675,7 @@ a:hover {
 }
 
 .navbar-default .nav-search {
-    color: #000000;
+    color: #126966;
     font-size: 1.5rem;
 }
 
@@ -649,7 +708,7 @@ a:hover {
 .navbar-default.navbar-trans .nav-link,
 .navbar-default.navbar-reduce .nav-link {
     font-size: 1.1rem;
-    color: #000000;
+    color: #126966;
     font-weight: 600;
     letter-spacing: 0.03em;
     transition: all 0.1s ease-in-out;
@@ -675,7 +734,7 @@ a:hover {
 
 .navbar-default.navbar-trans .nav-link:hover,
 .navbar-default.navbar-reduce .nav-link:hover {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-trans .nav-link:hover:before,
@@ -700,14 +759,14 @@ a:hover {
 }
 
 .navbar-default.navbar-trans .nav-link:hover {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-trans .show>.nav-link,
 .navbar-default.navbar-trans .active>.nav-link,
 .navbar-default.navbar-trans .nav-link.show,
 .navbar-default.navbar-trans .nav-link.active {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-reduce {
@@ -717,7 +776,7 @@ a:hover {
 }
 
 .navbar-default.navbar-reduce .nav-link {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-reduce .nav-link:before {
@@ -725,18 +784,18 @@ a:hover {
 }
 
 .navbar-default.navbar-reduce .nav-link:hover {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-reduce .show>.nav-link,
 .navbar-default.navbar-reduce .active>.nav-link,
 .navbar-default.navbar-reduce .nav-link.show,
 .navbar-default.navbar-reduce .nav-link.active {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default.navbar-reduce .navbar-brand {
-    color: #000000;
+    color: #126966;
 }
 
 .navbar-default .dropdown .dropdown-menu {
@@ -801,7 +860,7 @@ a:hover {
 
 .navbar-toggler span {
     display: block;
-    background-color: #000000;
+    background-color: #126966;
     height: 3px;
     width: 25px;
     margin-top: 4px;
@@ -937,7 +996,7 @@ a:hover {
     height: 100%;
     visibility: hidden;
     z-index: 1035;
-    background-color: #000000;
+    background-color: #126966;
     opacity: 0.4;
 }
 
@@ -947,7 +1006,7 @@ a:hover {
     top: 2rem;
     font-size: 3.5rem;
     line-height: 1;
-    color: #000000;
+    color: #126966;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -1434,7 +1493,7 @@ a:hover {
 
 .summary-list {
     padding-right: 1rem;
-    color: #000000;
+    color: #126966;
 }
 
 .summary-list .list {
@@ -1458,7 +1517,7 @@ a:hover {
 
 .property-agent ul {
     line-height: 2;
-    color: #000000;
+    color: #126966;
 }
 
 .property-agent .socials-a {
@@ -1496,9 +1555,9 @@ a:hover {
 
 .card-header-b .category-b {
     font-size: 0.9rem;
-    background-color: #126966;
+    background-color: #199a4a;
     padding: 0.3rem 0.7rem;
-    color: #313131;
+    color: white;
     letter-spacing: 0.03em;
     border-radius: 50px;
     text-decoration: none;
@@ -1560,7 +1619,7 @@ a:hover {
     font-weight: 300;
     margin-bottom: 4rem;
     line-height: 1.6;
-    color: #000000;
+    color: #126966;
     font-weight: 400;
 }
 
@@ -1571,7 +1630,7 @@ a:hover {
 .post-content .blockquote {
     padding: 1rem 3rem 1.7rem 3rem;
     border-left: 3px solid #126966;
-    color: #000000;
+    color: #126966;
 }
 
 .post-content .blockquote footer {
@@ -1627,7 +1686,7 @@ a:hover {
 }
 
 .box-comments .list-comments a {
-    color: #000000;
+    color: #126966;
 }
 
 .box-comments .list-comments span {
@@ -1678,7 +1737,7 @@ a:hover {
 
 .card-box-ico span {
     font-size: 4rem;
-    color: #000000;
+    color: #126966;
 }
 
 .title-c {
@@ -1802,7 +1861,7 @@ a:hover {
 }
 
 .card-box-d:hover .card-overlay-hover {
-    background-color: #126966;
+    background-color: #a3f0c0;
     opacity: 0.9;
 }
 
@@ -1914,7 +1973,7 @@ a:hover {
     content: " ";
     width: 35px;
     height: 2px;
-    background-color: #000000;
+    background-color: #126966;
     position: absolute;
     bottom: -15px;
 }
@@ -1986,7 +2045,7 @@ a:hover {
     margin-left: 1rem;
     display: inline-flex;
     font-size: 1.2rem;
-    color: #000000;
+    color: #126966;
 }
 
 /*--------------------------------------------------------------
@@ -2027,7 +2086,7 @@ a:hover {
 }
 
 .form-as label {
-    color: #000000;
+    color: #126966;
     position: relative;
 }
 
@@ -2088,7 +2147,7 @@ a:hover {
 }
 
 .php-email-form label {
-    color: #000000;
+    color: #126966;
     position: relative;
 }
 

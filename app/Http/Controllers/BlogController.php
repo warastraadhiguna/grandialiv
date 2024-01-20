@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Type;
+use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class TypeController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class TypeController extends Controller
     public function index()
     {
         $data = [
-            'title' => "Manajemen Type",
-            'types' => Type::orderBy('index')->get(),
-            'content' => "administrator/type/index"
+            'title' => "Manajemen Blog",
+            'blogs' => Blog::get(),
+            'content' => "administrator/blog/index"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -33,8 +34,8 @@ class TypeController extends Controller
     public function create()
     {
         $data = [
-            'title' => "Tambah Type",
-            'content' => "administrator/type/add"
+            'title' => "Tambah Blog",
+            'content' => "administrator/blog/add"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -50,31 +51,31 @@ class TypeController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
+            'summary' => 'required',
+            'contain' => 'required',
             'image_url' => 'required|mimes:jpg,png,jpeg,gif|max:1024',
-            'size' => 'required',
-            'building_size' => 'required|numeric',
-            'land_size' => 'required|numeric',
-            'bedroom' => 'required|numeric',
-            'bathroom' => 'required|numeric',
-            'carport' => 'required|numeric',
-            'bike' => 'required|numeric',
-            'price' => 'required',
-            'index' => 'required|numeric',
-            'note' => 'required',
+            'index' => 'required',
         ]);
 
         $data['user_id'] = auth()->user()->id;
+        $data['slug'] = Str::slug($request->input('title') . Str::random(40), '-');
 
-        if($request->hasFile('image_url')) {
-            $data['image_url'] = $request->file("image_url")->store('img', 'public');
-        } else {
-            $data['image_url'] = null;
+        try {
+
+            if($request->hasFile('image_url')) {
+                $data['image_url'] = $request->file("image_url")->store('img', 'public');
+            } else {
+                $data['image_url'] = null;
+            }
+
+            Blog::create($data);
+            Alert::success('Sukses', 'Data berhasil ditambah.');
+
+            return redirect("/admin/blog");
+
+        } catch (\Throwable $th) {
+            dd($th);
         }
-
-        Type::create($data);
-        Alert::success('Sukses', 'Data berhasil ditambah.');
-
-        return redirect("/admin/type");
     }
 
     /**
@@ -86,9 +87,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => "Ubah Type",
-            'type' => Type::find($id),
-            'content' => "administrator/type/add"
+            'title' => "Ubah Blog",
+            'blog' => Blog::find($id),
+            'content' => "administrator/blog/add"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -103,38 +104,31 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $type = Type::find($id);
+        $blog = Blog::find($id);
         $data = $request->validate([
             'title' => 'required',
+            'summary' => 'required',
+            'contain' => 'required',
             'image_url' => 'sometimes|mimes:jpg,png,jpeg,gif|max:1024',
-            'index' => 'required|numeric',
-            'size' => 'required',
-            'building_size' => 'required|numeric',
-            'land_size' => 'required',
-            'bedroom' => 'required|numeric',
-            'bathroom' => 'required|numeric',
-            'carport' => 'required|numeric',
-            'bike' => 'required|numeric',
-            'price' => 'required',
-            'note' => 'required',
+            'index' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
-
+        $data['slug'] = Str::slug($request->input('title') . Str::random(40), '-');
 
         if($request->hasFile('image_url')) {
-            if($type->image_url != null) {
-                Storage::delete($type->image_url);
+            if($blog->image_url != null) {
+                Storage::delete($blog->image_url);
             }
 
             $data['image_url'] = $request->file("image_url")->store('img', 'public');
         } else {
-            $data['image_url'] =  $type->image_url;
+            $data['image_url'] =  $blog->image_url;
         }
 
-        $type->update($data);
+        $blog->update($data);
         Alert::success('Sukses', 'Data berhasil diupdate.');
 
-        return redirect("/admin/type");
+        return redirect("/admin/blog");
     }
 
     /**
@@ -146,18 +140,18 @@ class TypeController extends Controller
     public function destroy($id)
     {
         try {
-            $type = Type::find($id);
+            $blog = Blog::find($id);
 
-            if($type->image_url) {
-                Storage::delete($type->image_url);
+            if($blog->image_url) {
+                Storage::delete($blog->image_url);
             }
 
-            $type->delete();
+            $blog->delete();
             Alert::success('Sukses', 'Data berhasil dihapus.');
         } catch(\Throwable $e) {
             Alert::error('Error', $e->getMessage());
         } finally {
-            return redirect("/admin/type");
+            return redirect("/admin/blog");
         }
 
     }

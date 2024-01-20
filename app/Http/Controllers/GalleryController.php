@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Type;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class TypeController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class TypeController extends Controller
     public function index()
     {
         $data = [
-            'title' => "Manajemen Type",
-            'types' => Type::orderBy('index')->get(),
-            'content' => "administrator/type/index"
+            'title' => "Manajemen Gallery",
+            'galleries' => Gallery::orderBy('index')->get(),
+            'content' => "administrator/gallery/index"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -33,8 +33,8 @@ class TypeController extends Controller
     public function create()
     {
         $data = [
-            'title' => "Tambah Type",
-            'content' => "administrator/type/add"
+            'title' => "Tambah Gallery",
+            'content' => "administrator/gallery/add"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -51,16 +51,7 @@ class TypeController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'image_url' => 'required|mimes:jpg,png,jpeg,gif|max:1024',
-            'size' => 'required',
-            'building_size' => 'required|numeric',
-            'land_size' => 'required|numeric',
-            'bedroom' => 'required|numeric',
-            'bathroom' => 'required|numeric',
-            'carport' => 'required|numeric',
-            'bike' => 'required|numeric',
-            'price' => 'required',
             'index' => 'required|numeric',
-            'note' => 'required',
         ]);
 
         $data['user_id'] = auth()->user()->id;
@@ -71,10 +62,10 @@ class TypeController extends Controller
             $data['image_url'] = null;
         }
 
-        Type::create($data);
+        Gallery::create($data);
         Alert::success('Sukses', 'Data berhasil ditambah.');
 
-        return redirect("/admin/type");
+        return redirect("/admin/gallery");
     }
 
     /**
@@ -86,9 +77,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => "Ubah Type",
-            'type' => Type::find($id),
-            'content' => "administrator/type/add"
+            'title' => "Ubah Gallery",
+            'gallery' => Gallery::find($id),
+            'content' => "administrator/gallery/add"
         ];
 
         return view("administrator.layouts.wrapper", $data);
@@ -103,38 +94,29 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $type = Type::find($id);
+        $gallery = Gallery::find($id);
         $data = $request->validate([
             'title' => 'required',
             'image_url' => 'sometimes|mimes:jpg,png,jpeg,gif|max:1024',
             'index' => 'required|numeric',
-            'size' => 'required',
-            'building_size' => 'required|numeric',
-            'land_size' => 'required',
-            'bedroom' => 'required|numeric',
-            'bathroom' => 'required|numeric',
-            'carport' => 'required|numeric',
-            'bike' => 'required|numeric',
-            'price' => 'required',
-            'note' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
 
 
         if($request->hasFile('image_url')) {
-            if($type->image_url != null) {
-                Storage::delete($type->image_url);
+            if($gallery->image_url != null) {
+                Storage::delete($gallery->image_url);
             }
 
             $data['image_url'] = $request->file("image_url")->store('img', 'public');
         } else {
-            $data['image_url'] =  $type->image_url;
+            $data['image_url'] =  $gallery->image_url;
         }
 
-        $type->update($data);
+        $gallery->update($data);
         Alert::success('Sukses', 'Data berhasil diupdate.');
 
-        return redirect("/admin/type");
+        return redirect("/admin/gallery");
     }
 
     /**
@@ -146,18 +128,18 @@ class TypeController extends Controller
     public function destroy($id)
     {
         try {
-            $type = Type::find($id);
+            $gallery = Gallery::find($id);
 
-            if($type->image_url) {
-                Storage::delete($type->image_url);
+            if($gallery->image_url) {
+                Storage::delete($gallery->image_url);
             }
 
-            $type->delete();
+            $gallery->delete();
             Alert::success('Sukses', 'Data berhasil dihapus.');
         } catch(\Throwable $e) {
             Alert::error('Error', $e->getMessage());
         } finally {
-            return redirect("/admin/type");
+            return redirect("/admin/gallery");
         }
 
     }

@@ -164,7 +164,19 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
-
+<script>
+  function openDokumen(imgTitle, imgPath) {
+    // $('#imageModal').modal({
+    //     backdrop: 'static',
+    //     show: true
+    // });
+      console.log(imgPath);
+    document.getElementById('modalTitleId').innerHTML =imgTitle;
+    document.getElementById('modalImageId').src = imgPath;
+    var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    myModal.show();
+}
+</script>
 </body>
 
 </html>

@@ -11,12 +11,12 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/logo.png')}}" rel="icon">
-  <link href="{{ asset('img/logo.png')}}" rel="apple-touch-icon">
-
+  <link href="{{ asset('img/logo.ico')}}" rel="icon">
+  <link href="{{ asset('img/logo.ico')}}" rel="apple-touch-icon">
+  {{-- <link rel="icon" type="image/x-icon" href="{{ asset('/img/logo.ico')}}">    --}}
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <!-- Vendor CSS Files -->
   <link href="{{ asset('assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -29,3 +29,4 @@
 </head>
 
 <body>
+  

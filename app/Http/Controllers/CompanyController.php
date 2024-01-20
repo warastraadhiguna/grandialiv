@@ -28,7 +28,7 @@ class CompanyController extends Controller
             'city' => 'required',
             'email' => 'sometimes',
             'phone' => 'required',
-            'note' => 'required',
+            'maps_frame' => 'required',
             'tagline' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
@@ -40,6 +40,36 @@ class CompanyController extends Controller
         return redirect("/admin/company");
     }
 
+    public function facilityUpdate(Request $request, $id)
+    {
+        $company = Company::find($id);
+        $data = $request->validate([
+            'facility_title' => 'required',
+            'facility_note' => 'required',
+        ]);
+
+        $data['user_id'] = auth()->user()->id;
+
+        $company->update($data);
+        Alert::success('Sukses', 'Data berhasil diupdate.');
+
+        return redirect("/admin/facility");
+    }
+    public function typeUpdate(Request $request, $id)
+    {
+        $company = Company::find($id);
+        $data = $request->validate([
+            'type_title' => 'required',
+            'type_note' => 'required',
+        ]);
+
+        $data['user_id'] = auth()->user()->id;
+
+        $company->update($data);
+        Alert::success('Sukses', 'Data berhasil diupdate.');
+
+        return redirect("/admin/category");
+    }
     public function socialMedia()
     {
         $data = [
@@ -56,7 +86,7 @@ class CompanyController extends Controller
         $data = $request->validate([
             'instagram' => 'nullable',
             'facebook' => 'nullable',
-            'youtube' => 'nullable',
+            'maps' => 'nullable',
             'google_map' => 'nullable',
         ]);
         $data['user_id'] = auth()->user()->id;
@@ -90,7 +120,7 @@ class CompanyController extends Controller
                 Storage::delete($company->banner_url);
             }
 
-            $data['banner_url'] = $request->file("banner_url")->store('img');
+            $data['banner_url'] = $request->file("banner_url")->store('img', 'public');
         } else {
             $data['banner_url'] =  $company->banner_url;
         }
@@ -99,5 +129,40 @@ class CompanyController extends Controller
         Alert::success('Sukses', 'Data berhasil diupdate.');
 
         return redirect("/admin/web/banner");
+    }
+
+    public function about()
+    {
+        $data = [
+            'title' => "About",
+            'content' => "administrator/company/about"
+        ];
+
+        return view("administrator.layouts.wrapper", $data);
+    }
+
+    public function updateAbout(Request $request, $id)
+    {
+        $company = Company::find($id);
+        $data = $request->validate([
+            'about_url' => 'sometimes|mimes:jpg,png,jpeg,gif|max:1024',
+            'about_contain' => 'required',
+        ]);
+        $data['user_id'] = auth()->user()->id;
+
+        if($request->hasFile('about_url')) {
+            if($company->about_url != null) {
+                Storage::delete($company->about_url);
+            }
+
+            $data['about_url'] = $request->file("about_url")->store('img', 'public');
+        } else {
+            $data['about_url'] =  $company->about_url;
+        }
+
+        $company->update($data);
+        Alert::success('Sukses', 'Data berhasil diupdate.');
+
+        return redirect("/admin/about");
     }
 }

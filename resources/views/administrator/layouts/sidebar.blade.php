@@ -1,10 +1,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('/img/logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    {{-- <a href="{{ URL::to('/admin/dashboard') }}" class="brand-link">
+      <img src="{{ asset('/img/logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3" width="50%" >
       <span class="brand-text font-weight-light">Admin</span>
-    </a>
+    </a> --}}
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -41,6 +41,14 @@
             </a>
           </li>          
           <li class="nav-item">
+            <a href="{{ URL::to('/admin/about') }}" class="nav-link {{ Request::is('admin/about')? 'active' : '' }}">
+              <i class="nav-icon  fa fa-file"></i>
+              <p>
+                About
+              </p>
+            </a>
+          </li>           
+          <li class="nav-item">
             <a href="{{ URL::to('/admin/banner') }}" class="nav-link {{ Request::is('admin/banner')? 'active' : '' }}">
               <i class="nav-icon fas fa-image"></i>
               <p>
@@ -48,6 +56,14 @@
               </p>
             </a>
           </li>       
+          <li class="nav-item">
+            <a href="{{ URL::to('/admin/gallery') }}" class="nav-link {{ Request::is('admin/gallery')? 'active' : '' }}">
+              <i class="nav-icon fas fa-images"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>          
           <li class="nav-item">
             <a href="{{ URL::to('/admin/advantage') }}" class="nav-link {{ Request::is('admin/advantage')? 'active' : '' }}">
               <i class="nav-icon fas fa-plus-square"></i>
@@ -63,42 +79,36 @@
                 Facility
               </p>
             </a>
-          </li>            
+          </li>       
           <li class="nav-item">
-            <a href="{{ URL::to('/admin/type') }}" class="nav-link {{ Request::is('admin/type')? 'active' : '' }}">
-              <i class="nav-icon fas fa-home"></i>
+            <a href="{{ URL::to('/admin/blog') }}" class="nav-link {{ Request::is('admin/blog')? 'active' : '' }}">
+              <i class="nav-icon fas fa-blog"></i>
               <p>
-                Type
+                News
               </p>
             </a>
-          </li>                       
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+          </li>                                        
+          <li class="nav-item {{ Request::is('admin/category') || Request::is('admin/type')? 'menu-is-opening menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Request::is('admin/category') || Request::is('admin/type')? 'active' : '' }}">
+              <i class="nav-icon 	fa fa-home"></i>
               <p>
-                Mailbox
+                House
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{ URL::to('/admin/category') }}" class="nav-link {{ Request::is('admin/category')? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
+                  <p>Type</p>
                 </a>
-              </li>
+              </li> 
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="{{ URL::to('/admin/type') }}" class="nav-link {{ Request::is('admin/type')? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
+                  <p>Detail</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
+              </li>              
             </ul>
           </li>
           <li class="nav-header">Master Data</li>

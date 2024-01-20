@@ -104,16 +104,28 @@
       </button>
       <a class="navbar-brand text-brand" href="{{ URL::to('/') }}">
         {{-- Estate<span class="color-b">Agency</span> --}}
-        <span class="color-b">{{ $company->name }}</span>
+        {{-- <span class="color-b">{{ $company->name }}</span> --}}
+        <img src="{{ asset('img/logo.png')}}" alt="{{ $company->name }}" width="30%">
       </a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="{{ URL::to('/') }}">Home</a>
+            <a class="nav-link {{ Request::is('/')? 'active' : '' }}" href="{{ URL::to('/') }}">Home</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link  {{ Request::is('gallery')? 'active' : '' }}" href="{{ URL::to('/gallery') }}">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  {{ Request::is('blog')? 'active' : '' }}" href="{{ URL::to('/blog') }}">News</a>
+          </li>         
+          <li class="nav-item">
+            <a class="nav-link  {{ Request::is('about')? 'active' : '' }}" href="{{ URL::to('/about') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  {{ Request::is('contact')? 'active' : '' }}" href="{{ URL::to('/contact') }}">Contact</a>
+          </li>
           {{-- <li class="nav-item">
             <a class="nav-link " href="about.html">About</a>
           </li>

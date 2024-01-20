@@ -25,3 +25,15 @@ function IsPublished($value)
 {
     return $value === "1" ? "Publikasi" : "Non Publikasi";
 }
+
+
+function CreateSlug($value)
+{
+    return str_replace(" ", "-", $value);
+}
+
+
+function DeleteSlug($value)
+{
+    return str_replace("-", " ", $value);
+}

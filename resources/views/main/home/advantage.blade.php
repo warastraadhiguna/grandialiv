@@ -14,7 +14,6 @@
         <div id="testimonial-carousel" class="swiper">
           <div class="swiper-wrapper">
 
-
           <?php 
             $i=0;
             $sizeOfAdvangates = sizeof($advantages);

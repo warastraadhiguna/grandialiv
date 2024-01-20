@@ -50,12 +50,16 @@ class FacilityController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'icon' => 'required',
-            'note' => 'required',
+            'image_url' => 'required|mimes:jpg,png,jpeg,gif|max:1024',
             'index' => 'required|numeric',
         ]);
 
         $data['user_id'] = auth()->user()->id;
+        if($request->hasFile('image_url')) {
+            $data['image_url'] = $request->file("image_url")->store('img', 'public');
+        } else {
+            $data['image_url'] = null;
+        }
 
         Facility::create($data);
         Alert::success('Sukses', 'Data berhasil ditambah.');
@@ -92,11 +96,20 @@ class FacilityController extends Controller
         $facility = Facility::find($id);
         $data = $request->validate([
             'title' => 'required',
-            'icon' => 'required',
+            'image_url' => 'sometimes|mimes:jpg,png,jpeg,gif|max:1024',
             'index' => 'required|numeric',
-            'note' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
+
+        if($request->hasFile('image_url')) {
+            if($facility->image_url != null) {
+                Storage::delete($facility->image_url);
+            }
+
+            $data['image_url'] = $request->file("image_url")->store('img', 'public');
+        } else {
+            $data['image_url'] =  $facility->image_url;
+        }
 
         $facility->update($data);
         Alert::success('Sukses', 'Data berhasil diupdate.');
@@ -114,6 +127,9 @@ class FacilityController extends Controller
     {
         try {
             $facility = Facility::find($id);
+            if($facility->image_url) {
+                Storage::delete($facility->image_url);
+            }
 
             $facility->delete();
             Alert::success('Sukses', 'Data berhasil dihapus.');

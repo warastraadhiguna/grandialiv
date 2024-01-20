@@ -19,15 +19,19 @@
             </div>               
             
             <div class="form-group">
-                <label for="">Icon <a class='link btn-link' target="_blank" href='https://icons.getbootstrap.com/'>(Klik di sini)</a></label>
-                <input type="text" name="icon" id="icon" class="form-control @error('icon') is-invalid                        
-                @enderror" placeholder="Icon" value="{{ isset($facility)? $facility->icon : old('icon') }}">
-                @error('icon') 
+                <label for="">Gambar Depan (377 x 291)</label>
+                <input type="file" name="image_url" id="image_url" class="form-control @error('image_url') is-invalid                        
+                @enderror" placeholder="Gambar" value={{ isset($banner)? $banner->image_url :old('image_url') }}>
+                @error('image_url') 
                     <div class="invalid-feedback">
                     {{ $message }}    
                     </div>                   
-                @enderror
-            </div>            
+                @enderror        
+                
+                @if(isset($banner))
+                    <img src="{{ URL::to('storage/' .$banner->image_url) }}"  width="20%" alt="">
+                @endif
+            </div>              
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ URL::to('/admin/facility') }}" type="button" class="btn btn-warning">Kembali</a>
     </div>
@@ -42,17 +46,7 @@
                     {{ $message }}    
                     </div>                   
                 @enderror
-            </div>        
-            <div class="form-group">
-                <label for="">Note</label>
-                <textarea  name="note" id="note" class="form-control @error('note') is-invalid                        
-                @enderror" placeholder="Note" value="">{{ isset($facility)? $facility->note : old('index') }}</textarea>
-                @error('note') 
-                    <div class="invalid-feedback">
-                    {{ $message }}    
-                    </div>                   
-                @enderror
-            </div>                    
+            </div>                        
     </div>
 </div>
 </form>

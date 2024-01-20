@@ -60,10 +60,10 @@
             @enderror
         </div>              
         <div class="form-group">
-            <label for="">Catatan</label>
-            <textarea name="note" id="note" class="form-control @error('note') is-invalid                        
-            @enderror" placeholder="Catatan">{{ isset($company)? $company->note : old('note') }}</textarea>
-            @error('note') 
+            <label for="">Maps Iframe</label>
+            <textarea name="maps_frame" id="maps_frame" class="form-control @error('maps_frame') is-invalid                        
+            @enderror" placeholder="Maps Iframe">{{ isset($company)? $company->maps_frame : old('maps_frame') }}</textarea>
+            @error('maps_frame') 
                 <div class="invalid-feedback">
                 {{ $message }}    
                 </div>                   

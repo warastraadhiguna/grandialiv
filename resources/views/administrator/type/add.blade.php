@@ -131,6 +131,16 @@
                 </div>                   
             @enderror
         </div>     
+            <div class="form-group">
+                <label for="">Catatan</label>
+                <textarea name="note" id="note" class="form-control @error('note') is-invalid                        
+                @enderror" placeholder="Catatan">{{ isset($type)? $type->note : old('note') }}</textarea>
+                @error('note') 
+                    <div class="invalid-feedback">
+                    {{ $message }}    
+                    </div>                   
+                @enderror
+            </div>        
     </div>
 </div>
 </form>
