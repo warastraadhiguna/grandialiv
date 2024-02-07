@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="position-absolute bottom-0  start-50  translate-middle-x text-center text-bold"
                                             style="top: 60%;">
-                                            <a id='detail-here' href="{{ URL::to('/type/' . $categories[$j]->slug) }}">Detail Here</a>
+                                            <a id='detail-here'  onclick="openType({{ $categories[$j]}})">Detail Here</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,3 +94,24 @@
 
         </div>
     </section>
+
+
+<div class="modal fade" id="typeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+            <table class="table table-responsive" id="type-table">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

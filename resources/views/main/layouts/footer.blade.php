@@ -1,30 +1,30 @@
   <!-- ======= Footer ======= -->
-  <section class="section-footer">
-    <div class="container">
+  {{-- <section class="section-footer"> --}}
+    {{-- <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">{{ $company->name }}</h3>
+              <h3 class="w-title-a text-brand">{ $company->name }}</h3>
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-              {{ $company->address . ' ' . $company->city  }}
+              { $company->address . ' ' . $company->city  }}
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> {{ $company->phone }}
+                  <span class="color-text-a">Phone .</span> { $company->phone }}
                 </li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> {{ $company->email }}
+                  <span class="color-text-a">Email .</span> { $company->email }}
                 </li>
               </ul>
             </div>
           </div>
-        </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
+        </div> --}}
+        {{-- <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
               <h3 class="w-title-a text-brand">The Company</h3>
@@ -54,7 +54,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         {{-- <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
@@ -84,8 +84,8 @@
             </div>
           </div>
         </div> --}}
-      </div>
-    </div>
+      {{-- </div>
+    </div> --}}
   </section>
   <footer>
     <div class="container">
@@ -155,7 +155,7 @@
   </footer><!-- End  Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="https://wa.me/{{ $company->phone }}" target="_blank" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -165,15 +165,94 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
 <script>
+  const baseUrl = '{{ URL::to("/") }}';
   function openDokumen(imgTitle, imgPath) {
     // $('#imageModal').modal({
     //     backdrop: 'static',
     //     show: true
     // });
-      console.log(imgPath);
+
     document.getElementById('modalTitleId').innerHTML =imgTitle;
     document.getElementById('modalImageId').src = imgPath;
-    var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    myModal.show();
+}
+
+const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function openType(object){
+    document.getElementById('modalTitleId').innerHTML =object.title;
+
+    const table = document.getElementById("type-table");
+
+    while (table.rows.length > 0) {
+        table.deleteRow(1);
+    }    
+
+    if(!object.types)return;
+
+    object.types.forEach((type) => { 
+        const newRow = table.insertRow();
+        newRow.insertCell(0).innerHTML = "<div class='card-box-a card-shadow'>"+
+          "<div class='img-box-a'>"+
+            "<img src='"+ baseUrl + "/storage/" + type.image_url +"' alt='"+ type.title +"' class='img-a img-fluid'>"+
+            "</div>"+
+            "<div class='card-overlay'>"+
+              "<div class='card-overlay-a-content'>"+
+                "<div class='card-header-a'>"+
+                  "<h2 class='card-title-a'>"+
+                    "<a>"+ type.title +
+                      "<br/>size</a>"+
+                  "</h2>"+
+                "</div>"+
+                "<div class='card-body-a'>"+
+                  "<div class='price-box d-flex'>"+
+                    "<span class='price-a'>Rp. "+ numberWithCommas(type.price) +",-</span>"+
+                    "</div>"+
+                    "</div>"+
+                    "<div class='card-footer-a'>"+
+                      "<ul class='card-info d-flex justify-content-around'>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Building</h4>"+
+                          "<span>"+ type.building_size +" m"+
+                            "<sup>2</sup>"+
+                            "</span>"+
+                        "</li>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Land</h4>"+
+                          "<span>"+ type.land_size +" m"+
+                            "<sup>2</sup>"+
+                          "</span>"+
+                        "</li>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Beds</h4>"+
+                          "<span>"+ type.bedroom +"</span>"+
+                        "</li>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Baths</h4>"+
+                          "<span>"+ type.bathroom +"</span>"+
+                        "</li>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Carport</h4>"+
+                          "<span>"+ type.carport +"</span>"+
+                        "</li>"+
+                        "<li>"+
+                          "<h4 class='card-info-title'>Bike</h4>"+
+                          "<span>"+ type.bike +"</span>"+
+                        "</li>"+
+                      "</ul>"+
+                    "</div>"+
+                  "</div>"+
+                "</div>"+
+              "</div>";
+
+
+
+    });
+
+    const myModal = new bootstrap.Modal(document.getElementById('typeModal'));
     myModal.show();
 }
 </script>

@@ -1,13 +1,12 @@
-@include('main.home.banner')
-
+{{-- @ include('main.home.banner') --}}
+@include('main.home.youtube')
   <main id="main">
-
+    @include('main.home.about')
     @include('main.home.facilities')
-    {{-- @include('main.home.youtube') --}}
     @include('main.home.type')
     @include('main.home.news')
     @include('main.home.advantage')
-
+    @include('main.home.contact')
 
     {{-- <!-- ======= Agents Section ======= -->
     <section class="section-agents section-t8">

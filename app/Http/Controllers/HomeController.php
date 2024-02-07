@@ -22,7 +22,7 @@ class HomeController extends Controller
             'advantages' => Advantage::where('index', '<>', '0')->orderBy('index')->get(),
             'facilities' => Facility::where('index', '<>', '0')->orderBy('index')->get(),
             'types' => Type::where('index', '<>', '0')->orderBy('index')->get(),
-            'categories' => Category::where('index', '<>', '0')->orderBy('index')->get(),
+            'categories' => Category::with("types")->where('index', '<>', '0')->orderBy('index')->get(),
             'blogs' => Blog::where('index', '<>', '0')->orderBy('index')->take(5)->get(),
         ];
 

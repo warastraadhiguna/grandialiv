@@ -6,7 +6,7 @@
 
             {{-- <div class="title-wrap d-flex">
               <div class="title-box"> --}}
-                <h1 class="title-landing-page-content">{{ $company->facility_title }}</h1>
+                <h1 class="title-landing-page-content text-capitalize">{{ $company->facility_title }}</h1>
               {{-- </div>
             </div> --}}
 

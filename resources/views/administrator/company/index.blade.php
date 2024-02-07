@@ -79,6 +79,17 @@
                 </div>                   
             @enderror
         </div>   
+
+        <div class="form-group">
+            <label for="">Youtube Iframe</label>
+            <textarea name="youtube_frame" id="youtube_frame" class="form-control @error('youtube_frame') is-invalid                        
+            @enderror" placeholder="Youtube Iframe">{{ isset($company)? $company->youtube_frame : old('youtube_frame') }}</textarea>
+            @error('youtube_frame') 
+                <div class="invalid-feedback">
+                {{ $message }}    
+                </div>                   
+            @enderror
+        </div>    
     </div>
 </div>
 <button type="submit" class="btn btn-primary">Simpan</button>  

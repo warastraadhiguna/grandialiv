@@ -29,6 +29,7 @@ class CompanyController extends Controller
             'email' => 'sometimes',
             'phone' => 'required',
             'maps_frame' => 'required',
+            'youtube_frame' => 'required',
             'tagline' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;

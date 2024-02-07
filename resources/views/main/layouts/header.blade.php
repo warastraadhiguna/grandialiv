@@ -111,21 +111,25 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
+          @if(Request::is('/') == false)
           <li class="nav-item">
             <a class="nav-link {{ Request::is('/')? 'active' : '' }}" href="{{ URL::to('/') }}">Home</a>
+          </li>  
+          @else
+ 
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('/')? 'active' : '' }}" href="#video-container">Home</a>
+          </li>      
+          <li class="nav-item">
+            <a class="nav-link  {{ Request::is('about')? 'active' : '' }}" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  {{ Request::is('gallery')? 'active' : '' }}" href="{{ URL::to('/gallery') }}">Gallery</a>
-          </li>
+            <a class="nav-link  {{ Request::is('blog')? 'active' : '' }}" href="#news">News</a>
+          </li>             
           <li class="nav-item">
-            <a class="nav-link  {{ Request::is('blog')? 'active' : '' }}" href="{{ URL::to('/blog') }}">News</a>
-          </li>         
-          <li class="nav-item">
-            <a class="nav-link  {{ Request::is('about')? 'active' : '' }}" href="{{ URL::to('/about') }}">About</a>
+            <a class="nav-link  {{ Request::is('contact')? 'active' : '' }}" href="#contact">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link  {{ Request::is('contact')? 'active' : '' }}" href="{{ URL::to('/contact') }}">Contact</a>
-          </li>
+         @endif          
           {{-- <li class="nav-item">
             <a class="nav-link " href="about.html">About</a>
           </li>

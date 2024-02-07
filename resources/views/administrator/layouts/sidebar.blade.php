@@ -55,15 +55,7 @@
                 Banner
               </p>
             </a>
-          </li>       
-          <li class="nav-item">
-            <a href="{{ URL::to('/admin/gallery') }}" class="nav-link {{ Request::is('admin/gallery')? 'active' : '' }}">
-              <i class="nav-icon fas fa-images"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>          
+          </li>             
           <li class="nav-item">
             <a href="{{ URL::to('/admin/advantage') }}" class="nav-link {{ Request::is('admin/advantage')? 'active' : '' }}">
               <i class="nav-icon fas fa-plus-square"></i>

@@ -1,7 +1,8 @@
 <!-- Carousel -->
-<div class="container carousel-item-news">
-  <div class="row">
-    <div class="col-md-12">
+<section class="section-services section-t4" id="news">
+<div class="container carousel-item-news mt-5">
+  <div class="row mb-5">
+    <div class="col-md-12 text-center">
           <span class="title-landing-page-news">NEWS</span>
     </div>
   </div>
@@ -39,4 +40,12 @@
     </button>
 
   </div>
+
+  
+  <div class="row mt-2">
+    <div class="col-md-12 text-center">
+          <small class="text-white float-end" onclick="window.open('{{ URL::to('/blog') }}','_self')">All News</small>
+    </div>
+  </div>
 </div>
+</section>
