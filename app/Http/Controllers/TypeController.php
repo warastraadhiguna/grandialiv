@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,7 @@ class TypeController extends Controller
     public function index()
     {
         $data = [
-            'title' => "Manajemen Type",
+            'title' => "Manajemen Detail",
             'types' => Type::orderBy('index')->get(),
             'content' => "administrator/type/index"
         ];
@@ -33,7 +34,8 @@ class TypeController extends Controller
     public function create()
     {
         $data = [
-            'title' => "Tambah Type",
+            'title' => "Tambah Detail",
+            'categories' => Category::get(),
             'content' => "administrator/type/add"
         ];
 
@@ -61,6 +63,7 @@ class TypeController extends Controller
             'price' => 'required',
             'index' => 'required|numeric',
             'note' => 'required',
+            'category_id' => 'required',
         ]);
 
         $data['user_id'] = auth()->user()->id;
@@ -86,8 +89,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => "Ubah Type",
+            'title' => "Ubah Detail",
             'type' => Type::find($id),
+            'categories' => Category::get(),
             'content' => "administrator/type/add"
         ];
 
@@ -117,6 +121,7 @@ class TypeController extends Controller
             'bike' => 'required|numeric',
             'price' => 'required',
             'note' => 'required',
+            'category_id' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
 

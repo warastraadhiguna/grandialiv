@@ -91,13 +91,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ URL::to('/admin/category') }}" class="nav-link {{ Request::is('admin/category')? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon ml-2"></i>
                   <p>Type</p>
                 </a>
               </li> 
               <li class="nav-item">
                 <a href="{{ URL::to('/admin/type') }}" class="nav-link {{ Request::is('admin/type')? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon ml-2"></i>
                   <p>Detail</p>
                 </a>
               </li>              

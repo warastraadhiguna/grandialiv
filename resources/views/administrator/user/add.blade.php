@@ -68,19 +68,19 @@
                     </div>                   
                 @enderror  
             </div>    
-        <div class="form-group">
-            <label for="">Status</label>
-            <select name="is_active" id="is_active" class="form-control @error('is_active') is-invalid                        
-            @enderror">
-                <option value="1" {{ isset($user)? ("1" == $user->is_active?"selected" : ""):"selected"  }}>Aktif</option>
-                <option value="0" {{  isset($user)? ("0" == $user->is_active?"selected" : ""):""  }}>Non Aktif</option>
-            </select>
-            @error('is_active') 
-                <div class="invalid-feedback">
-                {{ $message }}    
-                </div>                   
-            @enderror
-        </div>              
+            <div class="form-group">
+                <label for="">Status</label>
+                <select name="is_active" id="is_active" class="form-control @error('is_active') is-invalid                        
+                @enderror">
+                    <option value="1" {{ isset($user)? ("1" == $user->is_active?"selected" : ""):"selected"  }}>Aktif</option>
+                    <option value="0" {{  isset($user)? ("0" == $user->is_active?"selected" : ""):""  }}>Non Aktif</option>
+                </select>
+                @error('is_active') 
+                    <div class="invalid-feedback">
+                    {{ $message }}    
+                    </div>                   
+                @enderror
+            </div>              
         </div>    
     </div>
 </form>

@@ -8,6 +8,21 @@
 <div class="row">
     <div class="col-md-6">
             <div class="form-group">
+                <label for="">Status</label>
+                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid                        
+                @enderror">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ isset($type)? ($category->id == $type->category_id?"selected" : ""):"selected"  }}>{{ $category->title }}</option>
+                @endforeach
+                </select>
+                @error('category_id') 
+                    <div class="invalid-feedback">
+                    {{ $message }}    
+                    </div>                   
+                @enderror
+            </div> 
+
+            <div class="form-group">
                 <label for="">Judul</label>
                 <input type="text" name="title" id="title" class="form-control @error('title') is-invalid                        
                 @enderror" placeholder="Judul" value="{{ isset($type)? $type->title : old('title') }}">

@@ -6,7 +6,8 @@
     <thead>
       <tr>
           <th width="5%">No</th>
-          <th width="30%">Judul</th>        
+          <th width="10%">Type</th>              
+          <th width="10%">Judul</th>   
           <th width="10%">Urutan</th>                              
           <th>Gambar</th>                        
           <th width="20%">Action</th> 
@@ -16,7 +17,8 @@
       @foreach($types as $type)
       <tr>
           <td class="align-middle">{{ $loop->iteration }}</td>
-          <td class="align-middle">{{ $type->title  }}</td>
+          <td class="align-middle">{{ $type->category->title   }}</td>               
+          <td class="align-middle">{{ $type->title  }}</td>           
           <td class="align-middle">{{ $type->index   }}</td>      
           <td class="align-middle"><img src="{{ URL::to('storage/' .$type->image_url) }}"  width="35%" alt=""></td>                 
           <td class="align-middle">
