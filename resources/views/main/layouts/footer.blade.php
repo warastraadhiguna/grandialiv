@@ -188,7 +188,7 @@ function openType(object){
     const table = document.getElementById("type-table");
 
     while (table.rows.length > 0) {
-        table.deleteRow(1);
+        table.deleteRow(0);
     }    
 
     if(!object.types)return;
