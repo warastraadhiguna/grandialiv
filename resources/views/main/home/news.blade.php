@@ -15,16 +15,31 @@
       <div class="carousel-item {{ $key==0? 'active' :'' }}">
         <div class="d-flex justify-content-center align-items-center h-100">
           <!-- Kartu di dalam carousel item -->
-        <div class="card flex-row"  style="width: 800px; height: 300px">
-          <img class="card-img-left card-img-responsive" src="{{ asset('storage/' . $blog->image_url)}}"/>
-          <div class="card-body">
-            <h4 class="card-title h5 h4-sm text-bold">{{ $blog->title }}</h4>
-            <p class="card-text" style="text-align: justify;">{{ substr($blog->summary, 0, 100)  }}...</p>
-            <a href="{{ URL::to('/blog/' . $blog->slug) }}" class="btn btn-link">Read More...</a>
+          <div class="d-none d-md-block">
+            <div class="card flex-row"  style="width: 800px; height: 300px">
+              <img class="card-img-left card-img-responsive" src="{{ asset('storage/' . $blog->image_url)}}"/>
+              <div class="card-body">
+                <h4 class="card-title h5 h4-sm text-bold">{{ $blog->title }}</h4>
+                <p class="card-text" style="text-align: justify;">{{ substr($blog->summary, 0, 100)  }}...</p>
+                <a href="{{ URL::to('/blog/' . $blog->slug) }}" class="btn btn-link">Read More...</a>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
+                    <!-- Kartu di dalam carousel item mobile-->
+          <div class="d-md-none">
+            <div class="card flex-row"  style="width: 280px; height: 300px">
+              <img class="card-img-left " width="150%" src="{{ asset('storage/' . $blog->image_url)}}"/>
+              <div class="card-body">
+                <h4 class="card-title h5 h4-sm text-bold">{{ substr($blog->title, 0, 30)  }}...</h4>
+                <p class="card-text" style="text-align: justify;">{{ substr($blog->summary, 0, 40)  }}...</p>
+                <a href="{{ URL::to('/blog/' . $blog->slug) }}" class="btn btn-link"> More...</a>
+              </div>
+            </div>
+          </div>
+        </div>      
       </div>
+
+      
       @endforeach
 
     </div>
