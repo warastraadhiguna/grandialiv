@@ -51,10 +51,10 @@
                                             class="card-img-top img-fluid mx-auto my-auto" alt="...">
                                         <div
                                             class="position-absolute top-0 start-50 translate-middle-x text-center text-bold">
-                                            <h5 class="text-white text-uppercase">{{ $categories[$j]->title }}</h5>
+                                            <h5 class="text-white text-uppercase" style="margin-top: 20px; font-size:30px; font-weight: bold;">{{ $categories[$j]->title }}</h5>
                                         </div>
                                         <div class="position-absolute bottom-0  start-50  translate-middle-x text-center text-bold"
-                                            style="top: 60%;">
+                                            style="top: 80%; font-size:20px">
                                             <a id='detail-here'  onclick="openType({{ $categories[$j]}})">Detail Here</a>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
     </section>
 
 
-<div class="modal fade" id="typeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade mb-5" id="typeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
