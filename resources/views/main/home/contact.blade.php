@@ -12,12 +12,13 @@
 
           </div>
         </div>
+        <hr />
         <div class="row">
           <div class="col-sm-12">
             <div class="row">
               <div class="col-md-7">
                 <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                  <div class="row">
+                  <div class="row d-none d-md-block">
                     <div class="col-md-12">
                         <div class="contact-map box">
                         <div id="map" class="contact-map">

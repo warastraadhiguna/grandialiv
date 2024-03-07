@@ -17,7 +17,7 @@ class BannerController extends Controller
     public function index()
     {
         $data = [
-            'title' => "Manajemen Banner",
+            'title' => "Manajemen Slider",
             'banners' => Banner::orderBy('index')->get(),
             'content' => "administrator/banner/index"
         ];
@@ -33,7 +33,7 @@ class BannerController extends Controller
     public function create()
     {
         $data = [
-            'title' => "Tambah Banner",
+            'title' => "Tambah Slider",
             'content' => "administrator/banner/add"
         ];
 
@@ -77,7 +77,7 @@ class BannerController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => "Ubah Banner",
+            'title' => "Ubah Slider",
             'banner' => Banner::find($id),
             'content' => "administrator/banner/add"
         ];

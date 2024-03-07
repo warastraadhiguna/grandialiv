@@ -135,14 +135,14 @@ hr {
     height: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     #video-container {
         position: relative;
         padding-bottom: 56.25%;
         /* 16:9 aspect ratio */
         height: 0;
         overflow: hidden;
-        margin-top: 110px;
+        margin-top: 120px;
     }
 }
 
@@ -698,8 +698,7 @@ hr {
 .navbar-default {
     transition: all 0.5s ease-in-out;
     background-color: #ffffff;
-    padding-top: 28px;
-    padding-bottom: 28px;
+
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);

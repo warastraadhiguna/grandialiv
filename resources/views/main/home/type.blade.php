@@ -1,5 +1,5 @@
-    <section class="section-services section-t4">
-        <div class="container">
+    <section class="section-services section-t4" id="product">
+        <div class="container  mt-5">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="title-landing-page-content">{{ $company->type_title }}</h1>
@@ -29,7 +29,7 @@
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                             </div>
-                            <div class="col-sm-10 col-md-3 my-auto mx-auto">
+                            {{-- <div class="col-sm-10 col-md-3 my-auto mx-auto">
                                 <div class="card mx-auto my-auto d-none d-md-block" style="border: none">
                                     <img src="{{ asset('storage/' . $categories[$j]->image_url)}}"
                                         class="card-img-top img-fluid mx-auto my-auto" alt="...">
@@ -38,12 +38,13 @@
                                         <h5 class="text-white text-uppercase">{{ $categories[$j]->title }}</h5>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <?php
                                 $j++;
                 $j = $j >= $categoryLength ? 0 : $j;
                 ?>
-                            <div class="col-sm-10 col-md-4 my-auto mx-auto">
+                          <div class="d-none d-md-block">
+                            <div class="col-sm-10 col-md-10 my-auto mx-auto">
                                 <div class="card mx-auto my-auto d-none d-md-block" style="border: none">
                                     <div class='image-wrapper'>
                                         <img src="{{ asset('storage/' . $categories[$j]->image_url)}}"
@@ -59,11 +60,30 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="d-md-none">
+                            <div class="col-sm-10">
+                                <div class="card mx-auto my-auto" style="border: none">
+                                    <div class='image-wrapper'>
+                                        <img src="{{ asset('storage/' . $categories[$j]->image_url)}}"
+                                            class="card-img-top img-fluid mx-auto my-auto" alt="...">
+                                        <div
+                                            class="position-absolute top-0 start-50 translate-middle-x text-center text-bold">
+                                            <h5 class="text-white text-uppercase">{{ $categories[$j]->title }}</h5>
+                                        </div>
+                                        <div class="position-absolute bottom-0  start-50  translate-middle-x text-center text-bold"
+                                            style="top: 60%;">
+                                            <a id='detail-here'  onclick="openType({{ $categories[$j]}})">Detail Here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                             <?php
                     $j++;
                 $j = $j >= $categoryLength ? 0 : $j;
                 ?>
-                            <div class="col-sm-10 col-md-3 my-auto mx-auto">
+                            {{-- <div class="col-sm-10 col-md-3 my-auto mx-auto">
                                 <div class="card mx-auto my-auto" style="border: none">
                                     <img src="{{ asset('storage/' . $categories[$j]->image_url)}}"
                                         class="card-img-top img-fluid mx-auto my-auto" alt="...">
@@ -72,7 +92,7 @@
                                         <h5 class="text-white text-uppercase">{{ $categories[$j]->title }}</h5>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-sm-1 col-md-1 my-auto mx-auto">
                                 <button class="carousel-control-next" type="button"

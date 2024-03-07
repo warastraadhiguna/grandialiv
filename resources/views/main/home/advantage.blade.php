@@ -3,15 +3,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a">Advantages</h2>
-              </div>
-            </div>
+            {{-- <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box"> --}}
+                <h2 class="title-landing-page-content text-capitalize">Advantages</h2>
+              {{-- </div>
+            </div> --}}
           </div>
         </div>
-
-        <div id="testimonial-carousel" class="swiper">
+            <hr />
+        <div id="testimonial-carousel" class="swiper  d-none d-md-block ">
           <div class="swiper-wrapper">
 
           <?php 
@@ -93,5 +93,43 @@
         </div>
         <div class="testimonial-carousel-pagination carousel-pagination"></div>
 
+          <div class="carousel slide d-md-none" data-bs-ride="carousel" >
+            <div class="carousel-inner">
+
+              @foreach($advantages as $key => $advantage)
+              <!-- Item 1 -->
+              <div class="carousel-item {{ $key==0? 'active' :'' }}">
+                <div class="row">
+                  <div class="col-sm-12 col-md-3">
+                    <div class="testimonial-ico">
+                      <img src="{{ asset('storage/' . $advantage->image_url)}}">
+                    </div>
+                    <div class="testimonials-content">
+                      <p class="testimonial-text">
+                        {{ $advantage->note }}
+                      </p>
+                    </div>
+                    <div class="testimonial-author-box  text-center">
+                      <h5 class="testimonial-author">{{ $advantage->title }}</h5>
+                    </div>
+                  </div>  
+              </div>
+
+                       </div>
+              @endforeach
+
+            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#leafCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#leafCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div> 
+
+
+            <hr />
       </div>
     </section><!-- End Testimonials Section -->

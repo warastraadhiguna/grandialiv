@@ -1,34 +1,42 @@
   <!-- ======= Intro Section ======= -->
-  <div class="intro intro-carousel swiper position-relative">
+  <div id="home" class="intro intro-carousel swiper position-relative mt3  d-none d-md-block ">
 
     <div class="swiper-wrapper">
       @foreach($banners as $banner)
-        <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{ asset('storage/' . $banner->image_url)}}">
-        {{-- <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345
-                    </p>
-                    <h1 class="intro-title mb-4 ">
-                      <span class="color-b">204 </span> Mount
-                      <br> Olive Road Two
-                    </h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{{ asset('storage/' . $banner->image_url)}}'">
           </div>
-        </div> --}}
-      </div>
       @endforeach
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination"></div> 
   </div><!-- End Intro Section -->
+  <div id="home-mobile" class="carousel slide d-md-none" data-bs-ride="carousel" style="margin-top:100px">
+    <div class="carousel-inner">
+
+      @foreach($banners as $key => $banner)
+      <!-- Item 1 -->
+      <div class="carousel-item {{ $key==0? 'active' :'' }}">
+        <div class="d-flex justify-content-center align-items-center h-100">
+
+            <div class="card flex-row" >
+              <img class="card-img-left" width="150%" src="{{ asset('storage/' . $banner->image_url)}}"/>
+
+            </div>
+
+        </div>      
+      </div>
+
+      
+      @endforeach
+
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#leafCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#leafCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> 
+
+ 

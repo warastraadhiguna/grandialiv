@@ -1,6 +1,6 @@
 {{-- @ include('main.home.banner') --}}
-@include('main.home.youtube')
   <main id="main">
+    @include('main.home.banner')
     @include('main.home.about')
     @include('main.home.facilities')
     @include('main.home.type')

@@ -2,7 +2,7 @@
 <section class="section-services section-t4" id="news">
 <div class="container carousel-item-news mt-5">
   <div class="row mb-5">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 col-sm-12 text-center">
           <span class="title-landing-page-news">NEWS</span>
     </div>
   </div>
@@ -62,5 +62,6 @@
           <small class="text-white float-end" onclick="window.open('{{ URL::to('/blog') }}','_self')">All News</small>
     </div>
   </div>
+              <hr />
 </div>
 </section>

@@ -195,7 +195,8 @@ function openType(object){
 
     object.types.forEach((type) => { 
         const newRow = table.insertRow();
-        newRow.insertCell(0).innerHTML = "<div class='card-box-a card-shadow'>"+
+        newRow.insertCell(0).innerHTML = 
+        "<div class='card-box-a card-shadow'>"+
           "<div class='img-box-a'>"+
             "<img src='"+ baseUrl + "/storage/" + type.image_url +"' alt='"+ type.title +"' class='img-a img-fluid'>"+
             "</div>"+
@@ -212,44 +213,9 @@ function openType(object){
                     "<span class='price-a'>Rp. "+ numberWithCommas(type.price) +",-</span>"+
                     "</div>"+
                     "</div>"+
-                    "<div class='card-footer-a'>"+
-                      "<ul class='card-info d-flex justify-content-around'>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Building</h4>"+
-                          "<span>"+ type.building_size +" m"+
-                            "<sup>2</sup>"+
-                            "</span>"+
-                        "</li>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Land</h4>"+
-                          "<span>"+ type.land_size +" m"+
-                            "<sup>2</sup>"+
-                          "</span>"+
-                        "</li>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Beds</h4>"+
-                          "<span>"+ type.bedroom +"</span>"+
-                        "</li>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Baths</h4>"+
-                          "<span>"+ type.bathroom +"</span>"+
-                        "</li>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Carport</h4>"+
-                          "<span>"+ type.carport +"</span>"+
-                        "</li>"+
-                        "<li>"+
-                          "<h4 class='card-info-title'>Bike</h4>"+
-                          "<span>"+ type.bike +"</span>"+
-                        "</li>"+
-                      "</ul>"+
-                    "</div>"+
                   "</div>"+
                 "</div>"+
               "</div>";
-
-
-
     });
 
     const myModal = new bootstrap.Modal(document.getElementById('typeModal'));

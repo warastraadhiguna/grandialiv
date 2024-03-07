@@ -24,7 +24,8 @@
           </div>
         </div>        
         <hr/>
-        <div class="row">
+
+        <div class="row d-none d-md-block ">
           @foreach($facilities as $facility)
           <div class="col-md-4">
             <div class="card-box-c foo">
@@ -47,7 +48,35 @@
           </div>  
           @endforeach                                  
         </div>
-        
+          <div class="carousel slide d-md-none" data-bs-ride="carousel" >
+            <div class="carousel-inner">
+
+              @foreach($facilities as $key => $facility)
+              <!-- Item 1 -->
+              <div class="carousel-item {{ $key==0? 'active' :'' }}">
+                <div class="d-flex justify-content-center align-items-center h-100">
+
+                    <div class="card flex-row" >
+                        <img src="{{ asset('storage/' . $facility->image_url)}}" width="100%"/>
+
+                    </div>
+
+                </div>      
+              </div>
+
+              
+              @endforeach
+
+            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#leafCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#leafCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div> 
       <hr/>
       </div>
     </section><!-- End Services Section -->
