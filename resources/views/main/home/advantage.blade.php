@@ -102,7 +102,7 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-3">
                     <div class="testimonial-ico">
-                      <img src="{{ asset('storage/' . $advantage->image_url)}}">
+                      <img width="50%" src="{{ asset('storage/' . $advantage->image_url)}}">
                     </div>
                     <div class="testimonials-content">
                       <p class="testimonial-text">
