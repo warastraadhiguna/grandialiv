@@ -3,7 +3,7 @@
 
     <div class="swiper-wrapper">
       @foreach($banners as $banner)
-          <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{{ asset('storage/' . $banner->image_url)}}'">
+          <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{{ asset('storage/' . $banner->image_url)}}')">
           </div>
       @endforeach
     </div>

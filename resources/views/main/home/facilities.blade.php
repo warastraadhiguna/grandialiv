@@ -25,7 +25,9 @@
         </div>        
         <hr/>
 
-        <div class="row d-none d-md-block ">
+          <div class=" d-none d-md-block ">        
+        <div class="row">
+
           @foreach($facilities as $facility)
           <div class="col-md-4">
             <div class="card-box-c foo">
@@ -47,6 +49,7 @@
             </div>
           </div>  
           @endforeach                                  
+        </div>
         </div>
           <div class="carousel slide d-md-none" data-bs-ride="carousel" >
             <div class="carousel-inner">
